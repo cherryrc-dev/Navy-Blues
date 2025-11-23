@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
+
 public class StudentGradeManagementSystem {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -13,7 +15,7 @@ public class StudentGradeManagementSystem {
             boolean tryAgain = true;
         
             do {
-                processStudentGrades();
+                processStudentGrades(sc);
                 System.out.println("Would you like to process another student? (yes/no)");
                 String response = sc.nextLine();
                 if (!response.equalsIgnoreCase("yes")) {
@@ -23,32 +25,54 @@ public class StudentGradeManagementSystem {
 
         } else {
             for (int i = 0; i < 10; i++) {
-                processStudentGrades();
+                processStudentGrades(sc);
                 System.out.println();
             }
+            System.exit(0);
         }
-        
         
         sc.close();
     }
     
-    private static void processStudentGrades() {
-        String[] name = {"Alice", "Bob", "Charlie", "Diana", "Ethan", "Fiona", "George", "Hannah", "Ian", "Jane"};
-        int[] mathGrades = {85, 90, 78, 92, 88, 76, 95, 89, 84, 91};
-        int[] sciGrades = {85, 90, 78, 92, 88, 76, 95, 89, 84, 91};
-        int[] engGrades = {85, 90, 78, 92, 88, 76, 95, 89, 84, 91};
-        
-        int n = (int)(Math.random() * 10); // Random student index
-        double average = (mathGrades[n] + sciGrades[n] + engGrades[n]) / 3.0;
+    private static void processStudentGrades(Scanner sc) {
 
+        String[] name = new String[10];
+        int[] mathGrades = new int[10];
+        int[] sciGrades = new int[10];
+        int[] engGrades = new int[10];
+
+        System.out.println("Enter student names one by one: ");
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Student " + (i + 1) + ": ");
+            name[i] = sc.nextLine();
+        }
+        System.out.println("Enter Math grades for each student: ");
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Math grade for " + name[i] + ": ");
+            mathGrades[i] = sc.nextInt();
+        }
+        System.out.println("Enter Science grades for each student: ");
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Science grade for " + name[i] + ": ");
+            sciGrades[i] = sc.nextInt();
+        }
+        System.out.println("Enter English grades for each student: ");
+        for (int i = 0; i < 10; i++) {
+            System.out.print("English grade for " + name[i] + ": ");
+            engGrades[i] = sc.nextInt();
+        }
+        
         System.out.println("=== Student Grades Management System ===");
-        System.out.println("Student Name: " + name[n]);
-        System.out.println("Math Grade: " + mathGrades[n]);
-        System.out.println("Science Grade: " + sciGrades[n]);
-        System.out.println("English Grade: " + engGrades[n]);
-        System.out.println("--- Results ---");
-        System.out.println("Student Name: " + name[n]);
-        System.out.println("Average Grade: " + average);
-        System.out.println("Status: " + (average >= 75 ? "Pass" : "Fail"));
+        for (int i = 0; i < 10; i++) {
+            double average = (mathGrades[i] + sciGrades[i] + engGrades[i]) / 3.0;
+            System.out.println("Student Name: " + name[i]);
+            System.out.println("Math Grade: " + mathGrades[i]);
+            System.out.println("Science Grade: " + sciGrades[i]);
+            System.out.println("English Grade: " + engGrades[i]);
+            System.out.println("--- Results ---");
+            System.out.println("Average Grade: " + average);
+            System.out.println("Status: " + (average >= 75 ? "Pass" : "Fail"));
+            System.out.println();
+        }
     }
 }
