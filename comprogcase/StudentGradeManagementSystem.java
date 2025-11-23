@@ -24,10 +24,8 @@ public class StudentGradeManagementSystem {
             } while (tryAgain);
 
         } else {
-            for (int i = 0; i < 10; i++) {
-                processStudentGrades(sc);
-                System.out.println();
-            }
+            processStudentGrades(sc);
+            System.out.println();
             System.exit(0);
         }
         
