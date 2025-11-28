@@ -1,0 +1,49 @@
+Code explanation
+
+This repository includes a small Student Grade Management GUI application.
+
+Overview
+
+StudentGradeFrame.java is the main graphical application window. It keeps a
+list of Student objects and arranges controls that let a user add, view, find,
+modify, or remove students.
+Student Grade Management — README
+
+This project contains a small GUI application that manages student records.
+
+Overview
+
+StudentGradeFrame.java acts as the main application window. It keeps a list
+of Student objects and exposes controls that let a user add, view, locate,
+change, or remove records.
+
+Student model
+
+A Student stores a full name and numeric grades in math, science, and English.
+Helper methods compute the average of those three values and indicate whether
+the student passes (average at least 75) or fails.
+
+User interface
+
+Six primary controls appear in the window: Add Student, Show All Students,
+Search Student, Edit Student, Delete Student, and Exit. Each control triggers
+an action that modifies or queries the stored data.
+
+How data moves through the app
+
+User interactions trigger event handlers that update or query the student
+list. Adding creates a new record; showing displays the collection in a
+scrollable view; searching locates a record by name; editing updates fields;
+deleting removes a record.
+
+Key concepts used
+
+• Object-orientation — classes group data and behavior.
+• Event-driven UI — button actions run handler code in response to user
+	activity.
+• Collections — a list holds Student records and supports add/remove/update.
+
+Summary
+
+This learning example demonstrates GUI layout, event handling, and runtime
+collection management using Java Swing.
